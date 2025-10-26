@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - CloudCare Hospital</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">
+                <i class="fas fa-hospital me-2"></i>CloudCare Hospital
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="doctors.html">Doctors</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="departments.html">Departments</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="appointments.html">Appointments</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header bg-primary text-white py-5 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h1 class="display-4 fw-bold mb-3">Contact Us</h1>
+                    <p class="lead">Get in touch with us for any inquiries or support</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Information Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <div class="card contact-card h-100 border-0 shadow-sm">
+                        <div class="card-body text-center p-4">
+                            <i class="fas fa-map-marker-alt fa-3x text-primary mb-3"></i>
+                            <h4 class="fw-bold">Address</h4>
+                            <p class="text-muted">123 Healthcare Avenue<br>
+                            Medical City, MC 12345<br>
+                            United States</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <div class="card contact-card h-100 border-0 shadow-sm">
+                        <div class="card-body text-center p-4">
+                            <i class="fas fa-phone fa-3x text-success mb-3"></i>
+                            <h4 class="fw-bold">Phone Numbers</h4>
+                            <p class="text-muted">Main: +1 (555) 123-4567<br>
+                            Emergency: +1 (555) 911-HELP<br>
+                            Fax: +1 (555) 123-4568</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <div class="card contact-card h-100 border-0 shadow-sm">
+                        <div class="card-body text-center p-4">
+                            <i class="fas fa-envelope fa-3x text-info mb-3"></i>
+                            <h4 class="fw-bold">Email Addresses</h4>
+                            <p class="text-muted">General: info@cloudcarehospital.com<br>
+                            Appointments: appointments@cloudcarehospital.com<br>
+                            Emergency: emergency@cloudcarehospital.com</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="card border-0 shadow-lg">
+                        <div class="card-body p-5">
+                            <div class="text-center mb-4">
+                                <i class="fas fa-paper-plane fa-3x text-primary mb-3"></i>
+                                <h2 class="fw-bold">Send Us a Message</h2>
+                                <p class="text-muted">Fill out the form below and we'll get back to you as soon as possible</p>
+                            </div>
+
+                            <form id="contactForm" class="needs-validation" novalidate>
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="contactFirstName" class="form-label fw-bold">First Name *</label>
+                                        <input type="text" class="form-control" id="contactFirstName" required>
+                                        <div class="invalid-feedback">
+                                            Please provide your first name.
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="contactLastName" class="form-label fw-bold">Last Name *</label>
+                                        <input type="text" class="form-control" id="contactLastName" required>
+                                        <div class="invalid-feedback">
+                                            Please provide your last name.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="contactEmail" class="form-label fw-bold">Email Address *</label>
+                                        <input type="email" class="form-control" id="contactEmail" required>
+                                        <div class="invalid-feedback">
+                                            Please provide a valid email address.
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="contactPhone" class="form-label fw-bold">Phone Number</label>
+                                        <input type="tel" class="form-control" id="contactPhone">
+                                    </div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="subject" class="form-label fw-bold">Subject *</label>
+                                    <select class="form-select" id="subject" required>
+                                        <option value="">Select Subject</option>
+                                        <option value="general">General Inquiry</option>
+                                        <option value="appointment">Appointment Related</option>
+                                        <option value="billing">Billing Question</option>
+                                        <option value="medical">Medical Question</option>
+                                        <option value="feedback">Feedback</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                    <div class="invalid-feedback">
+                                        Please select a subject.
+                                    </div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="message" class="form-label fw-bold">Message *</label>
+                                    <textarea class="form-control" id="message" rows="5" placeholder="Please describe your inquiry or message..." required></textarea>
+                                    <div class="invalid-feedback">
+                                        Please provide your message.
+                                    </div>
+                                </div>
+
+                                <div class="mb-4">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="urgent" value="urgent">
+                                        <label class="form-check-label" for="urgent">
+                                            This is an urgent matter
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="d-grid gap-2">
+                                    <button class="btn btn-primary btn-lg" type="submit">
+                                        <i class="fas fa-paper-plane me-2"></i>Send Message
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="text-center mb-4">
+                        <h2 class="fw-bold">Find Us</h2>
+                        <p class="text-muted">Visit our hospital at the location shown on the map below</p>
+                    </div>
+                    <div class="map-container">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3024.2219901290355!2d-74.00369368459413!3d40.71312937933185!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a23e28c1191%3A0x49f75d3281df052a!2s150%20Park%20Row%2C%20New%20York%2C%20NY%2010007!5e0!3m2!1sen!2sus!4v1625097607820!5m2!1sen!2sus" 
+                            width="100%" 
+                            height="400" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Office Hours Section -->
+    <section class="py-5 bg-primary text-white">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 class="display-5 fw-bold mb-4">Office Hours</h2>
+                    <div class="row">
+                        <div class="col-md-4 mb-3">
+                            <div class="hours-card">
+                                <h5 class="fw-bold">General Services</h5>
+                                <p class="mb-1">Monday - Friday: 9:00 AM - 5:00 PM</p>
+                                <p class="mb-1">Saturday: 9:00 AM - 1:00 PM</p>
+                                <p class="mb-0">Sunday: Closed</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <div class="hours-card">
+                                <h5 class="fw-bold">Emergency Services</h5>
+                                <p class="mb-1">24/7 Emergency Care</p>
+                                <p class="mb-1">24/7 Emergency Line</p>
+                                <p class="mb-0">+1 (555) 911-HELP</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <div class="hours-card">
+                                <h5 class="fw-bold">Specialized Care</h5>
+                                <p class="mb-1">By Appointment Only</p>
+                                <p class="mb-1">Monday - Friday: 8:00 AM - 6:00 PM</p>
+                                <p class="mb-0">Saturday: 9:00 AM - 2:00 PM</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h5 class="fw-bold mb-3">
+                        <i class="fas fa-hospital me-2"></i>CloudCare Hospital
+                    </h5>
+                    <p class="text-muted">Providing exceptional healthcare services with compassion, innovation, and excellence.</p>
+                    <div class="social-links">
+                        <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h6 class="fw-bold mb-3">Quick Links</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html" class="text-muted text-decoration-none">Home</a></li>
+                        <li><a href="doctors.html" class="text-muted text-decoration-none">Doctors</a></li>
+                        <li><a href="departments.html" class="text-muted text-decoration-none">Departments</a></li>
+                        <li><a href="appointments.html" class="text-muted text-decoration-none">Appointments</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h6 class="fw-bold mb-3">Contact Info</h6>
+                    <p class="text-muted mb-2">
+                        <i class="fas fa-map-marker-alt me-2"></i>123 Healthcare Ave, Medical City
+                    </p>
+                    <p class="text-muted mb-2">
+                        <i class="fas fa-phone me-2"></i>+1 (555) 123-4567
+                    </p>
+                    <p class="text-muted">
+                        <i class="fas fa-envelope me-2"></i>info@cloudcarehospital.com
+                    </p>
+                </div>
+                <div class="col-lg-3 mb-4">
+                    <h6 class="fw-bold mb-3">Emergency</h6>
+                    <p class="text-danger fw-bold mb-2">24/7 Emergency Line</p>
+                    <p class="text-white fw-bold">+1 (555) 911-HELP</p>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="text-muted mb-0">&copy; 2024 CloudCare Hospital. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="text-muted mb-0">Powered by AWS Cloud Infrastructure</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
+
+
