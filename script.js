@@ -8,7 +8,14 @@ document.addEventListener('DOMContentLoaded', function() {
     initContactForm();
     initAnimations();
     initNavbarScroll();
+    initMobileMenu();
+    initEmergencyContact();
+    initDepartmentFilter();
+    initSearch();
 });
+
+// Backend base URL (auto-detect same origin)
+const API_BASE_URL = 'http://localhost:3000';
 
 // Smooth scrolling for anchor links
 function initSmoothScrolling() {
@@ -46,7 +53,7 @@ function initFormValidation() {
 function initAppointmentForm() {
     const appointmentForm = document.getElementById('appointmentForm');
     if (appointmentForm) {
-        appointmentForm.addEventListener('submit', function(e) {
+        appointmentForm.addEventListener('submit', async function(e) {
             e.preventDefault();
             
             // Show loading state
@@ -55,22 +62,41 @@ function initAppointmentForm() {
             submitBtn.innerHTML = '<span class="loading"></span> Processing...';
             submitBtn.disabled = true;
             
-            // Simulate form processing
-            setTimeout(() => {
-                // Reset button
-                submitBtn.innerHTML = originalText;
-                submitBtn.disabled = false;
-                
-                // Show success message
-                showAlert('success', 'Appointment request submitted successfully! We will contact you soon to confirm your appointment.');
-                
-                // Reset form
+            try {
+                const payload = {
+                    firstName: document.getElementById('firstName')?.value || '',
+                    lastName: document.getElementById('lastName')?.value || '',
+                    email: document.getElementById('email')?.value || '',
+                    phone: document.getElementById('phone')?.value || '',
+                    dateOfBirth: document.getElementById('dateOfBirth')?.value || '',
+                    gender: document.getElementById('gender')?.value || '',
+                    department: document.getElementById('department')?.value || '',
+                    doctor: document.getElementById('doctor')?.value || '',
+                    appointmentDate: document.getElementById('appointmentDate')?.value || '',
+                    appointmentTime: document.getElementById('appointmentTime')?.value || '',
+                    reason: document.getElementById('reason')?.value || '',
+                    emergency: document.getElementById('emergency')?.checked || false,
+                    insurance: document.getElementById('insurance')?.checked || false
+                };
+
+                const res = await fetch(`${API_BASE_URL}/api/appointments`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                if (!res.ok) throw new Error('Failed to submit');
+
+                showAlert('success', 'Appointment submitted successfully! We will contact you soon.');
                 appointmentForm.reset();
                 appointmentForm.classList.remove('was-validated');
-                
-                // Scroll to top
                 window.scrollTo({ top: 0, behavior: 'smooth' });
-            }, 2000);
+            } catch (err) {
+                showAlert('danger', 'Unable to submit appointment. Please try again later.');
+            } finally {
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+            }
         });
         
         // Department change handler
@@ -89,14 +115,14 @@ function initAppointmentForm() {
             const today = new Date().toISOString().split('T')[0];
             appointmentDate.setAttribute('min', today);
         }
-    });
+    }
 }
 
 // Contact form functionality
 function initContactForm() {
     const contactForm = document.getElementById('contactForm');
     if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
+        contactForm.addEventListener('submit', async function(e) {
             e.preventDefault();
             
             // Show loading state
@@ -105,22 +131,35 @@ function initContactForm() {
             submitBtn.innerHTML = '<span class="loading"></span> Sending...';
             submitBtn.disabled = true;
             
-            // Simulate form processing
-            setTimeout(() => {
-                // Reset button
-                submitBtn.innerHTML = originalText;
-                submitBtn.disabled = false;
-                
-                // Show success message
+            try {
+                const payload = {
+                    firstName: document.getElementById('contactFirstName')?.value || '',
+                    lastName: document.getElementById('contactLastName')?.value || '',
+                    email: document.getElementById('contactEmail')?.value || '',
+                    phone: document.getElementById('contactPhone')?.value || '',
+                    subject: document.getElementById('subject')?.value || '',
+                    message: document.getElementById('message')?.value || '',
+                    urgent: document.getElementById('urgent')?.checked || false
+                };
+
+                const res = await fetch(`${API_BASE_URL}/api/contact`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                if (!res.ok) throw new Error('Failed to send');
+
                 showAlert('success', 'Message sent successfully! We will get back to you within 24 hours.');
-                
-                // Reset form
                 contactForm.reset();
                 contactForm.classList.remove('was-validated');
-                
-                // Scroll to top
                 window.scrollTo({ top: 0, behavior: 'smooth' });
-            }, 2000);
+            } catch (err) {
+                showAlert('danger', 'Unable to send your message. Please try again later.');
+            } finally {
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+            }
         });
     }
 }
@@ -306,14 +345,6 @@ function initMobileMenu() {
         });
     }
 }
-
-// Initialize mobile menu
-document.addEventListener('DOMContentLoaded', function() {
-    initMobileMenu();
-    initEmergencyContact();
-    initDepartmentFilter();
-    initSearch();
-});
 
 // Utility functions
 function formatPhoneNumber(phoneNumber) {
