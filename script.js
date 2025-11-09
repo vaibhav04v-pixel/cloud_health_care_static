@@ -17,6 +17,9 @@ document.addEventListener('DOMContentLoaded', function() {
 // Backend base URL (auto-detect same origin)
 const API_BASE_URL = 'http://localhost:3000';
 
+// const API_BASE_URL = 'http://cloudapp:3000';
+
+
 // Smooth scrolling for anchor links
 function initSmoothScrolling() {
     const links = document.querySelectorAll('a[href^="#"]');

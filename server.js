@@ -8,8 +8,9 @@ require('dotenv').config();
 const app = express();
 const PORT = process.env.PORT || 3000;
 // const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/cloudcare_hospital';
-const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://admin:qwrty@localhost:27017/cloudcare_hospital?authSource=admin';
+// const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://admin:qwrty@localhost:27017/cloudcare_hospital?authSource=admin';
 // const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://admin:qwrty@localhost:27017/';
+const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://admin:qwrty@mongo:27017/';
 
 // Middleware
 app.use(morgan('dev'));
