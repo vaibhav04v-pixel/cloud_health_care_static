@@ -19,3 +19,15 @@ services:
       ME_CONFIG_MONGODB_ADMINUSERNAME: admin
       ME_CONFIG_MONGODB_ADMINPASSWORD: qwrty
       ME_CONFIG_MONGODB_URL: mongodb://admin:qwrty@mongo:27017/ 
+
+  cloudapp:
+    image: cloudapp:1.0
+    container_name: cloudapp
+    restart: always
+    ports:
+      - "3000:3000"
+    # environment:
+    #   MONGO_DB_USERNAME: admin
+    #   MONGO_DB_PWD: qwrty
+    depends_on:
+      - mongo
